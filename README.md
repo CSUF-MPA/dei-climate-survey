@@ -95,7 +95,7 @@ The survey consists of four main sections with Likert scale questions and open-e
 
 - **Platform**: GitHub Pages
 - **File**: `index.html`
-- **URL**: `https://[your-username].github.io/[repository-name]/`
+- **URL**: `https://CSUF-MPA.github.io/dei-climate-survey/`
 - **Accessibility**: WCAG 2.1 AA compliant
 - **Browser Support**: All modern browsers with full accessibility features
 
@@ -129,7 +129,7 @@ The survey has been tested with:
 1. **Fork or download this repository**
 
    ```bash
-   git clone https://github.com/[your-username]/[repository-name].git
+   git clone https://github.com/CSUF-MPA/dei-climate-survey.git
    ```
 
 2. **Rename the survey file for GitHub Pages**
@@ -145,7 +145,7 @@ The survey has been tested with:
    - Click Save
 
 4. **Access your survey**
-   - Survey will be available at: `https://[your-username].github.io/[repository-name]/`
+   - Survey will be available at: `https://CSUF-MPA.github.io/dei-climate-survey/`
    - Share this link with faculty members
 
 ## Privacy & Anonymity

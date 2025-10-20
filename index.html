@@ -294,649 +294,821 @@
                 font-size: 1.3em;
             }
         }
+        
+        /* Password Protection Styles */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        
+        .password-modal {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+        
+        .password-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .password-error {
+            color: #d32f2f;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .survey-container {
+            display: none;
+        }
+        
+        .survey-container.unlocked {
+            display: block;
+        }
+        
+        /* Add expired overlay styles */
+        .expired-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10001;
+        }
+        
+        .expired-modal {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .expired-modal h2 {
+            color: #d32f2f;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <main id="main-content" role="main">
-        <div class="container">
-            <header>
-                <h1>DEI Faculty Climate Survey</h1>
-                <div class="intro">
-                    <p>Your feedback is important to us. All responses are anonymous and will help improve our department's climate and culture. For the purposes of this survey, we refer to the Public Administration unit as the department.</p>
-                    <p><strong>Note:</strong> All questions are optional. Please feel free to answer only those you are comfortable with.</p>
-                </div>
-            </header>
-            
-            <form action="https://formspree.io/f/xnngwgrb" method="POST" novalidate aria-describedby="form-instructions">
-                <div id="form-instructions" class="sr-only">
-                    This form contains multiple sections with rating questions and open-ended questions. Each rating question uses a 5-point scale from Strongly Disagree to Strongly Agree. All questions are optional.
-                </div>
-                
-                <!-- Section 1: General Climate & Belonging -->
-                <section class="section" aria-labelledby="general-heading">
-                    <h2 id="general-heading" class="section-title">General Climate & Belonging</h2>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            1. I feel comfortable sharing my beliefs, perspectives, and opinions within the public administration (PA) department.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup" aria-labelledby="general-heading">
-                            <div class="likert-option">
-                                <input type="radio" id="q1_1" name="general_1" value="Strongly Disagree">
-                                <label for="q1_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q1_2" name="general_1" value="Disagree">
-                                <label for="q1_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q1_3" name="general_1" value="Neutral">
-                                <label for="q1_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q1_4" name="general_1" value="Agree">
-                                <label for="q1_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q1_5" name="general_1" value="Strongly Agree">
-                                <label for="q1_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            2. Faculty meetings and departmental discussions provide space for all voices to be heard.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="q2_1" name="general_2" value="Strongly Disagree">
-                                <label for="q2_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q2_2" name="general_2" value="Disagree">
-                                <label for="q2_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q2_3" name="general_2" value="Neutral">
-                                <label for="q2_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q2_4" name="general_2" value="Agree">
-                                <label for="q2_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q2_5" name="general_2" value="Strongly Agree">
-                                <label for="q2_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            3. I feel my contributions are valued by my department.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="q3_1" name="general_3" value="Strongly Disagree">
-                                <label for="q3_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q3_2" name="general_3" value="Disagree">
-                                <label for="q3_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q3_3" name="general_3" value="Neutral">
-                                <label for="q3_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q3_4" name="general_3" value="Agree">
-                                <label for="q3_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q3_5" name="general_3" value="Strongly Agree">
-                                <label for="q3_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            4. I feel comfortable raising concerns or disagreements without fear of retaliation or negative evaluation in our department.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="q4_1" name="general_4" value="Strongly Disagree">
-                                <label for="q4_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q4_2" name="general_4" value="Disagree">
-                                <label for="q4_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q4_3" name="general_4" value="Neutral">
-                                <label for="q4_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q4_4" name="general_4" value="Agree">
-                                <label for="q4_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q4_5" name="general_4" value="Strongly Agree">
-                                <label for="q4_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            5. The department community is welcoming and supportive.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="q5_1" name="general_5" value="Strongly Disagree">
-                                <label for="q5_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q5_2" name="general_5" value="Disagree">
-                                <label for="q5_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q5_3" name="general_5" value="Neutral">
-                                <label for="q5_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q5_4" name="general_5" value="Agree">
-                                <label for="q5_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="q5_5" name="general_5" value="Strongly Agree">
-                                <label for="q5_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                </section>
-                
-                <!-- Section 2: Diversity, Equity & Inclusion Culture -->
-                <section class="section" aria-labelledby="dei-heading">
-                    <h2 id="dei-heading" class="section-title">Diversity, Equity & Inclusion Culture</h2>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            1. Our department has implemented concrete practices to support diversity, equity, inclusion, and belonging (such as recruitment initiatives, inclusive policies, or professional development).
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="dei1_1" name="dei_1" value="Strongly Disagree">
-                                <label for="dei1_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei1_2" name="dei_1" value="Disagree">
-                                <label for="dei1_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei1_3" name="dei_1" value="Neutral">
-                                <label for="dei1_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei1_4" name="dei_1" value="Agree">
-                                <label for="dei1_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei1_5" name="dei_1" value="Strongly Agree">
-                                <label for="dei1_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            2. Faculty achievements related to DEIB are recognized and rewarded in my department.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="dei2_1" name="dei_2" value="Strongly Disagree">
-                                <label for="dei2_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei2_2" name="dei_2" value="Disagree">
-                                <label for="dei2_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei2_3" name="dei_2" value="Neutral">
-                                <label for="dei2_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei2_4" name="dei_2" value="Agree">
-                                <label for="dei2_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei2_5" name="dei_2" value="Strongly Agree">
-                                <label for="dei2_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            3. I believe our department has adequate racial and ethnic diversity among faculty.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="dei3_1" name="dei_3" value="Strongly Disagree">
-                                <label for="dei3_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei3_2" name="dei_3" value="Disagree">
-                                <label for="dei3_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei3_3" name="dei_3" value="Neutral">
-                                <label for="dei3_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei3_4" name="dei_3" value="Agree">
-                                <label for="dei3_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei3_5" name="dei_3" value="Strongly Agree">
-                                <label for="dei3_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            4. I believe our department has adequate gender diversity among faculty.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="dei4_1" name="dei_4" value="Strongly Disagree">
-                                <label for="dei4_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei4_2" name="dei_4" value="Disagree">
-                                <label for="dei4_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei4_3" name="dei_4" value="Neutral">
-                                <label for="dei4_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei4_4" name="dei_4" value="Agree">
-                                <label for="dei4_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei4_5" name="dei_4" value="Strongly Agree">
-                                <label for="dei4_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            5. Departmental leadership reflects the diversity of our faculty.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="dei5_1" name="dei_5" value="Strongly Disagree">
-                                <label for="dei5_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei5_2" name="dei_5" value="Disagree">
-                                <label for="dei5_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei5_3" name="dei_5" value="Neutral">
-                                <label for="dei5_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei5_4" name="dei_5" value="Agree">
-                                <label for="dei5_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei5_5" name="dei_5" value="Strongly Agree">
-                                <label for="dei5_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            6. I have access to DEIB-related workshops or training.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="dei6_1" name="dei_6" value="Strongly Disagree">
-                                <label for="dei6_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei6_2" name="dei_6" value="Disagree">
-                                <label for="dei6_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei6_3" name="dei_6" value="Neutral">
-                                <label for="dei6_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei6_4" name="dei_6" value="Agree">
-                                <label for="dei6_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="dei6_5" name="dei_6" value="Strongly Agree">
-                                <label for="dei6_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                </section>
-                
-                <!-- Section 3: Experiences of Discrimination & Exclusion -->
-                <section class="section" aria-labelledby="disc-heading">
-                    <h2 id="disc-heading" class="section-title">Experiences of Discrimination & Exclusion</h2>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            1. I feel confident intervening when I witness bias or discrimination.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="disc1_1" name="disc_1" value="Strongly Disagree">
-                                <label for="disc1_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc1_2" name="disc_1" value="Disagree">
-                                <label for="disc1_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc1_3" name="disc_1" value="Neutral">
-                                <label for="disc1_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc1_4" name="disc_1" value="Agree">
-                                <label for="disc1_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc1_5" name="disc_1" value="Strongly Agree">
-                                <label for="disc1_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            2. I know where to report incidents of discrimination or harassment.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="disc2_1" name="disc_2" value="Strongly Disagree">
-                                <label for="disc2_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc2_2" name="disc_2" value="Disagree">
-                                <label for="disc2_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc2_3" name="disc_2" value="Neutral">
-                                <label for="disc2_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc2_4" name="disc_2" value="Agree">
-                                <label for="disc2_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc2_5" name="disc_2" value="Strongly Agree">
-                                <label for="disc2_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            3. I have confidence that reports of discrimination or harassment will be taken seriously and investigated fairly.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="disc3_1" name="disc_3" value="Strongly Disagree">
-                                <label for="disc3_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc3_2" name="disc_3" value="Disagree">
-                                <label for="disc3_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc3_3" name="disc_3" value="Neutral">
-                                <label for="disc3_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc3_4" name="disc_3" value="Agree">
-                                <label for="disc3_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc3_5" name="disc_3" value="Strongly Agree">
-                                <label for="disc3_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            4. In the past year, I have experienced discrimination or exclusion based on my identity in our department (race/ethnicity, gender, sexual orientation, political beliefs, etc.).
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="disc4_1" name="disc_4" value="Strongly Disagree">
-                                <label for="disc4_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc4_2" name="disc_4" value="Disagree">
-                                <label for="disc4_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc4_3" name="disc_4" value="Neutral">
-                                <label for="disc4_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc4_4" name="disc_4" value="Agree">
-                                <label for="disc4_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="disc4_5" name="disc_4" value="Strongly Agree">
-                                <label for="disc4_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                </section>
-                
-                <!-- Section 4: Professional Support & Development -->
-                <section class="section" aria-labelledby="prof-heading">
-                    <h2 id="prof-heading" class="section-title">Professional Support & Development</h2>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            1. I have opportunities to collaborate on teaching or research with colleagues in my department.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="prof1_1" name="prof_1" value="Strongly Disagree">
-                                <label for="prof1_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof1_2" name="prof_1" value="Disagree">
-                                <label for="prof1_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof1_3" name="prof_1" value="Neutral">
-                                <label for="prof1_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof1_4" name="prof_1" value="Agree">
-                                <label for="prof1_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof1_5" name="prof_1" value="Strongly Agree">
-                                <label for="prof1_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            2. The public administration department supports my professional development goals.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="prof2_1" name="prof_2" value="Strongly Disagree">
-                                <label for="prof2_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof2_2" name="prof_2" value="Disagree">
-                                <label for="prof2_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof2_3" name="prof_2" value="Neutral">
-                                <label for="prof2_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof2_4" name="prof_2" value="Agree">
-                                <label for="prof2_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof2_5" name="prof_2" value="Strongly Agree">
-                                <label for="prof2_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            3. I feel supported balancing teaching, research, and service responsibilities within the PA department.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="prof3_1" name="prof_3" value="Strongly Disagree">
-                                <label for="prof3_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof3_2" name="prof_3" value="Disagree">
-                                <label for="prof3_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof3_3" name="prof_3" value="Neutral">
-                                <label for="prof3_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof3_4" name="prof_3" value="Agree">
-                                <label for="prof3_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof3_5" name="prof_3" value="Strongly Agree">
-                                <label for="prof3_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            4. I feel my preferences are taken into consideration when making class scheduling decisions within my department.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="prof4_1" name="prof_4" value="Strongly Disagree">
-                                <label for="prof4_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof4_2" name="prof_4" value="Disagree">
-                                <label for="prof4_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof4_3" name="prof_4" value="Neutral">
-                                <label for="prof4_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof4_4" name="prof_4" value="Agree">
-                                <label for="prof4_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof4_5" name="prof_4" value="Strongly Agree">
-                                <label for="prof4_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <fieldset class="question-fieldset">
-                        <legend class="question-legend">
-                            5. Expectations around service and workload are fair and equitable within the department.
-                        </legend>
-                        <div class="likert-scale" role="radiogroup">
-                            <div class="likert-option">
-                                <input type="radio" id="prof5_1" name="prof_5" value="Strongly Disagree">
-                                <label for="prof5_1">Strongly Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof5_2" name="prof_5" value="Disagree">
-                                <label for="prof5_2">Disagree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof5_3" name="prof_5" value="Neutral">
-                                <label for="prof5_3">Neutral</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof5_4" name="prof_5" value="Agree">
-                                <label for="prof5_4">Agree</label>
-                            </div>
-                            <div class="likert-option">
-                                <input type="radio" id="prof5_5" name="prof_5" value="Strongly Agree">
-                                <label for="prof5_5">Strongly Agree</label>
-                            </div>
-                        </div>
-                    </fieldset>
-                </section>
-                
-                <!-- Open-Ended Questions -->
-                <section class="section" aria-labelledby="open-heading">
-                    <h2 id="open-heading" class="section-title">Open-Ended Questions</h2>
-                    
-                    <div class="textarea-group">
-                        <label for="open_1" class="textarea-label">
-                            1. Do you have the opportunity to take on assigned time positions that you are interested in? Why or why not?
-                        </label>
-                        <textarea id="open_1" name="open_1" rows="4" aria-describedby="open1-desc"></textarea>
-                        <div id="open1-desc" class="sr-only">This is an optional open-ended question. You may provide as much or as little detail as you wish.</div>
-                    </div>
-                    
-                    <div class="textarea-group">
-                        <label for="open_2" class="textarea-label">
-                            2. Do you have the opportunity to teach courses you are interested in? Why or why not?
-                        </label>
-                        <textarea id="open_2" name="open_2" rows="4" aria-describedby="open2-desc"></textarea>
-                        <div id="open2-desc" class="sr-only">This is an optional open-ended question. You may provide as much or as little detail as you wish.</div>
-                    </div>
-                    
-                    <div class="textarea-group">
-                        <label for="open_3" class="textarea-label">
-                            3. Within the PA department, what current practices best support your sense of inclusion and belonging?
-                        </label>
-                        <textarea id="open_3" name="open_3" rows="4" aria-describedby="open3-desc"></textarea>
-                        <div id="open3-desc" class="sr-only">This is an optional open-ended question. You may provide as much or as little detail as you wish.</div>
-                    </div>
-                    
-                    <div class="textarea-group">
-                        <label for="open_4" class="textarea-label">
-                            4. What is one action that could be taken within the PA department to improve faculty experience and/or foster community?
-                        </label>
-                        <textarea id="open_4" name="open_4" rows="4" aria-describedby="open4-desc"></textarea>
-                        <div id="open4-desc" class="sr-only">This is an optional open-ended question. You may provide as much or as little detail as you wish.</div>
-                    </div>
-                </section>
-                
-                <div class="submit-section">
-                    <button type="submit" aria-describedby="submit-info">Submit Survey</button>
-                    <p id="submit-info" class="privacy-note">All responses are anonymous and confidential.</p>
-                </div>
-            </form>
+    <!-- Survey Expired Overlay -->
+    <div id="expiredOverlay" class="expired-overlay" style="display: none;">
+        <div class="expired-modal">
+            <h2>Survey Closed</h2>
+            <p>This survey closed on October 25, 2025 and is no longer accepting responses.</p>
+            <p>Thank you for your interest in participating.</p>
         </div>
-    </main>
+    </div>
+
+    <!-- Password Protection Overlay -->
+    <div id="passwordOverlay" class="password-overlay">
+        <div class="password-modal">
+            <h2>Faculty Survey Access</h2>
+            <p>This survey is for Public Administration department faculty only.</p>
+            <p><small>Survey expires October 25, 2025</small></p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="Enter access code" autocomplete="off">
+            <br>
+            <button onclick="checkPassword()" class="password-button">Access Survey</button>
+            <div id="passwordError" class="password-error">Incorrect access code. Please try again.</div>
+        </div>
+    </div>
+    
+    <!-- Survey Content -->
+    <div id="surveyContainer" class="survey-container">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        
+        <main id="main-content" role="main">
+            <div class="container">
+                <header>
+                    <h1>DEI Faculty Climate Survey</h1>
+                    <div class="intro">
+                        <p>Your feedback is important to us. All responses are anonymous and will help improve our department's climate and culture. For the purposes of this survey, we refer to the Public Administration unit as the department.</p>
+                    </div>
+                </header>
+                
+                <form action="https://formspree.io/f/xnngwgrb" method="POST" novalidate aria-describedby="form-instructions">
+                    <div id="form-instructions" class="sr-only">
+                        This form contains multiple sections with rating questions and open-ended questions. Each rating question uses a 5-point scale from Strongly Disagree to Strongly Agree. All questions are optional.
+                    </div>
+                    
+                    <!-- Section 1: General Climate & Belonging -->
+                    <section class="section" aria-labelledby="general-heading">
+                        <h2 id="general-heading" class="section-title">General Climate & Belonging</h2>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                1. I feel comfortable sharing my beliefs, perspectives, and opinions within the public administration (PA) department.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup" aria-labelledby="general-heading">
+                                <div class="likert-option">
+                                    <input type="radio" id="q1_1" name="general_1" value="Strongly Disagree">
+                                    <label for="q1_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q1_2" name="general_1" value="Disagree">
+                                    <label for="q1_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q1_3" name="general_1" value="Neutral">
+                                    <label for="q1_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q1_4" name="general_1" value="Agree">
+                                    <label for="q1_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q1_5" name="general_1" value="Strongly Agree">
+                                    <label for="q1_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                2. Faculty meetings and departmental discussions provide space for all voices to be heard.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="q2_1" name="general_2" value="Strongly Disagree">
+                                    <label for="q2_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q2_2" name="general_2" value="Disagree">
+                                    <label for="q2_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q2_3" name="general_2" value="Neutral">
+                                    <label for="q2_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q2_4" name="general_2" value="Agree">
+                                    <label for="q2_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q2_5" name="general_2" value="Strongly Agree">
+                                    <label for="q2_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                3. I feel my contributions are valued by my department.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="q3_1" name="general_3" value="Strongly Disagree">
+                                    <label for="q3_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q3_2" name="general_3" value="Disagree">
+                                    <label for="q3_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q3_3" name="general_3" value="Neutral">
+                                    <label for="q3_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q3_4" name="general_3" value="Agree">
+                                    <label for="q3_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q3_5" name="general_3" value="Strongly Agree">
+                                    <label for="q3_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                4. I feel comfortable raising concerns or disagreements without fear of retaliation or negative evaluation in our department.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="q4_1" name="general_4" value="Strongly Disagree">
+                                    <label for="q4_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q4_2" name="general_4" value="Disagree">
+                                    <label for="q4_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q4_3" name="general_4" value="Neutral">
+                                    <label for="q4_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q4_4" name="general_4" value="Agree">
+                                    <label for="q4_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q4_5" name="general_4" value="Strongly Agree">
+                                    <label for="q4_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                5. The department community is welcoming and supportive.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="q5_1" name="general_5" value="Strongly Disagree">
+                                    <label for="q5_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q5_2" name="general_5" value="Disagree">
+                                    <label for="q5_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q5_3" name="general_5" value="Neutral">
+                                    <label for="q5_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q5_4" name="general_5" value="Agree">
+                                    <label for="q5_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="q5_5" name="general_5" value="Strongly Agree">
+                                    <label for="q5_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </section>
+                    
+                    <!-- Section 2: Diversity, Equity & Inclusion Culture -->
+                    <section class="section" aria-labelledby="dei-heading">
+                        <h2 id="dei-heading" class="section-title">Diversity, Equity & Inclusion Culture</h2>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                1. Our department has implemented concrete practices to support diversity, equity, inclusion, and belonging (such as recruitment initiatives, inclusive policies, or professional development).
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="dei1_1" name="dei_1" value="Strongly Disagree">
+                                    <label for="dei1_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei1_2" name="dei_1" value="Disagree">
+                                    <label for="dei1_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei1_3" name="dei_1" value="Neutral">
+                                    <label for="dei1_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei1_4" name="dei_1" value="Agree">
+                                    <label for="dei1_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei1_5" name="dei_1" value="Strongly Agree">
+                                    <label for="dei1_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                2. Faculty achievements related to DEIB are recognized and rewarded in my department.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="dei2_1" name="dei_2" value="Strongly Disagree">
+                                    <label for="dei2_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei2_2" name="dei_2" value="Disagree">
+                                    <label for="dei2_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei2_3" name="dei_2" value="Neutral">
+                                    <label for="dei2_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei2_4" name="dei_2" value="Agree">
+                                    <label for="dei2_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei2_5" name="dei_2" value="Strongly Agree">
+                                    <label for="dei2_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                3. I believe our department has adequate racial and ethnic diversity among faculty.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="dei3_1" name="dei_3" value="Strongly Disagree">
+                                    <label for="dei3_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei3_2" name="dei_3" value="Disagree">
+                                    <label for="dei3_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei3_3" name="dei_3" value="Neutral">
+                                    <label for="dei3_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei3_4" name="dei_3" value="Agree">
+                                    <label for="dei3_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei3_5" name="dei_3" value="Strongly Agree">
+                                    <label for="dei3_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                4. I believe our department has adequate gender diversity among faculty.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="dei4_1" name="dei_4" value="Strongly Disagree">
+                                    <label for="dei4_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei4_2" name="dei_4" value="Disagree">
+                                    <label for="dei4_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei4_3" name="dei_4" value="Neutral">
+                                    <label for="dei4_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei4_4" name="dei_4" value="Agree">
+                                    <label for="dei4_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei4_5" name="dei_4" value="Strongly Agree">
+                                    <label for="dei4_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                5. Departmental leadership reflects the diversity of our faculty.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="dei5_1" name="dei_5" value="Strongly Disagree">
+                                    <label for="dei5_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei5_2" name="dei_5" value="Disagree">
+                                    <label for="dei5_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei5_3" name="dei_5" value="Neutral">
+                                    <label for="dei5_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei5_4" name="dei_5" value="Agree">
+                                    <label for="dei5_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei5_5" name="dei_5" value="Strongly Agree">
+                                    <label for="dei5_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                6. I have access to DEIB-related workshops or training.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="dei6_1" name="dei_6" value="Strongly Disagree">
+                                    <label for="dei6_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei6_2" name="dei_6" value="Disagree">
+                                    <label for="dei6_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei6_3" name="dei_6" value="Neutral">
+                                    <label for="dei6_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei6_4" name="dei_6" value="Agree">
+                                    <label for="dei6_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="dei6_5" name="dei_6" value="Strongly Agree">
+                                    <label for="dei6_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </section>
+                    
+                    <!-- Section 3: Experiences of Discrimination & Exclusion -->
+                    <section class="section" aria-labelledby="disc-heading">
+                        <h2 id="disc-heading" class="section-title">Experiences of Discrimination & Exclusion</h2>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                1. I feel confident intervening when I witness bias or discrimination.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="disc1_1" name="disc_1" value="Strongly Disagree">
+                                    <label for="disc1_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc1_2" name="disc_1" value="Disagree">
+                                    <label for="disc1_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc1_3" name="disc_1" value="Neutral">
+                                    <label for="disc1_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc1_4" name="disc_1" value="Agree">
+                                    <label for="disc1_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc1_5" name="disc_1" value="Strongly Agree">
+                                    <label for="disc1_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                2. I know where to report incidents of discrimination or harassment.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="disc2_1" name="disc_2" value="Strongly Disagree">
+                                    <label for="disc2_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc2_2" name="disc_2" value="Disagree">
+                                    <label for="disc2_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc2_3" name="disc_2" value="Neutral">
+                                    <label for="disc2_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc2_4" name="disc_2" value="Agree">
+                                    <label for="disc2_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc2_5" name="disc_2" value="Strongly Agree">
+                                    <label for="disc2_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                3. I have confidence that reports of discrimination or harassment will be taken seriously and investigated fairly.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="disc3_1" name="disc_3" value="Strongly Disagree">
+                                    <label for="disc3_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc3_2" name="disc_3" value="Disagree">
+                                    <label for="disc3_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc3_3" name="disc_3" value="Neutral">
+                                    <label for="disc3_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc3_4" name="disc_3" value="Agree">
+                                    <label for="disc3_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc3_5" name="disc_3" value="Strongly Agree">
+                                    <label for="disc3_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                4. In the past year, I have experienced discrimination or exclusion based on my identity in our department (race/ethnicity, gender, sexual orientation, political beliefs, etc.).
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="disc4_1" name="disc_4" value="Strongly Disagree">
+                                    <label for="disc4_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc4_2" name="disc_4" value="Disagree">
+                                    <label for="disc4_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc4_3" name="disc_4" value="Neutral">
+                                    <label for="disc4_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc4_4" name="disc_4" value="Agree">
+                                    <label for="disc4_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="disc4_5" name="disc_4" value="Strongly Agree">
+                                    <label for="disc4_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </section>
+                    
+                    <!-- Section 4: Professional Support & Development -->
+                    <section class="section" aria-labelledby="prof-heading">
+                        <h2 id="prof-heading" class="section-title">Professional Support & Development</h2>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                1. I have opportunities to collaborate on teaching or research with colleagues in my department.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="prof1_1" name="prof_1" value="Strongly Disagree">
+                                    <label for="prof1_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof1_2" name="prof_1" value="Disagree">
+                                    <label for="prof1_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof1_3" name="prof_1" value="Neutral">
+                                    <label for="prof1_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof1_4" name="prof_1" value="Agree">
+                                    <label for="prof1_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof1_5" name="prof_1" value="Strongly Agree">
+                                    <label for="prof1_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                2. The public administration department supports my professional development goals.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="prof2_1" name="prof_2" value="Strongly Disagree">
+                                    <label for="prof2_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof2_2" name="prof_2" value="Disagree">
+                                    <label for="prof2_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof2_3" name="prof_2" value="Neutral">
+                                    <label for="prof2_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof2_4" name="prof_2" value="Agree">
+                                    <label for="prof2_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof2_5" name="prof_2" value="Strongly Agree">
+                                    <label for="prof2_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                3. I feel supported balancing teaching, research, and service responsibilities within the PA department.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="prof3_1" name="prof_3" value="Strongly Disagree">
+                                    <label for="prof3_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof3_2" name="prof_3" value="Disagree">
+                                    <label for="prof3_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof3_3" name="prof_3" value="Neutral">
+                                    <label for="prof3_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof3_4" name="prof_3" value="Agree">
+                                    <label for="prof3_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof3_5" name="prof_3" value="Strongly Agree">
+                                    <label for="prof3_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                4. I feel my preferences are taken into consideration when making class scheduling decisions within my department.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="prof4_1" name="prof_4" value="Strongly Disagree">
+                                    <label for="prof4_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof4_2" name="prof_4" value="Disagree">
+                                    <label for="prof4_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof4_3" name="prof_4" value="Neutral">
+                                    <label for="prof4_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof4_4" name="prof_4" value="Agree">
+                                    <label for="prof4_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof4_5" name="prof_4" value="Strongly Agree">
+                                    <label for="prof4_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="question-fieldset">
+                            <legend class="question-legend">
+                                5. Expectations around service and workload are fair and equitable within the department.
+                            </legend>
+                            <div class="likert-scale" role="radiogroup">
+                                <div class="likert-option">
+                                    <input type="radio" id="prof5_1" name="prof_5" value="Strongly Disagree">
+                                    <label for="prof5_1">Strongly Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof5_2" name="prof_5" value="Disagree">
+                                    <label for="prof5_2">Disagree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof5_3" name="prof_5" value="Neutral">
+                                    <label for="prof5_3">Neutral</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof5_4" name="prof_5" value="Agree">
+                                    <label for="prof5_4">Agree</label>
+                                </div>
+                                <div class="likert-option">
+                                    <input type="radio" id="prof5_5" name="prof_5" value="Strongly Agree">
+                                    <label for="prof5_5">Strongly Agree</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </section>
+                    
+                    <!-- Open-Ended Questions -->
+                    <section class="section" aria-labelledby="open-heading">
+                        <h2 id="open-heading" class="section-title">Open-Ended Questions</h2>
+                        
+                        <div class="textarea-group">
+                            <label for="open_1" class="textarea-label">
+                                1. Do you have the opportunity to take on assigned time positions that you are interested in? Why or why not?
+                            </label>
+                            <textarea id="open_1" name="open_1" rows="4" aria-describedby="open1-desc"></textarea>
+                            <div id="open1-desc" class="sr-only">This is an optional open-ended question. You may provide as much or as little detail as you wish.</div>
+                        </div>
+                        
+                        <div class="textarea-group">
+                            <label for="open_2" class="textarea-label">
+                                2. Do you have the opportunity to teach courses you are interested in? Why or why not?
+                            </label>
+                            <textarea id="open_2" name="open_2" rows="4" aria-describedby="open2-desc"></textarea>
+                            <div id="open2-desc" class="sr-only">This is an optional open-ended question. You may provide as much or as little detail as you wish.</div>
+                        </div>
+                        
+                        <div class="textarea-group">
+                            <label for="open_3" class="textarea-label">
+                                3. Within the PA department, what current practices best support your sense of inclusion and belonging?
+                            </label>
+                            <textarea id="open_3" name="open_3" rows="4" aria-describedby="open3-desc"></textarea>
+                            <div id="open3-desc" class="sr-only">This is an optional open-ended question. You may provide as much or as little detail as you wish.</div>
+                        </div>
+                        
+                        <div class="textarea-group">
+                            <label for="open_4" class="textarea-label">
+                                4. What is one action that could be taken within the PA department to improve faculty experience and/or foster community?
+                            </label>
+                            <textarea id="open_4" name="open_4" rows="4" aria-describedby="open4-desc"></textarea>
+                            <div id="open4-desc" class="sr-only">This is an optional open-ended question. You may provide as much or as little detail as you wish.</div>
+                        </div>
+                    </section>
+                    
+                    <div class="submit-section">
+                        <button type="submit" aria-describedby="submit-info">Submit Survey</button>
+                        <p id="submit-info" class="privacy-note">All responses are anonymous and confidential.</p>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Check if survey has expired
+        function checkExpiration() {
+            const expiryDate = new Date('2025-10-25T23:59:59');
+            const currentDate = new Date();
+            
+            if (currentDate > expiryDate) {
+                document.getElementById('expiredOverlay').style.display = 'flex';
+                document.getElementById('passwordOverlay').style.display = 'none';
+                return true;
+            }
+            return false;
+        }
+        
+        function checkPassword() {
+            if (checkExpiration()) return;
+            
+            const password = document.getElementById('passwordInput').value;
+            const correctPassword = 'PAFaculty2025'; // Updated password
+            
+            if (password === correctPassword) {
+                document.getElementById('passwordOverlay').style.display = 'none';
+                document.getElementById('surveyContainer').classList.add('unlocked');
+                
+                // Store access in session (cleared when browser tab closes)
+                sessionStorage.setItem('surveyAccess', 'granted');
+            } else {
+                document.getElementById('passwordError').style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').focus();
+            }
+        }
+        
+        // Check expiration and authentication on load
+        if (!checkExpiration()) {
+            if (sessionStorage.getItem('surveyAccess') === 'granted') {
+                document.getElementById('passwordOverlay').style.display = 'none';
+                document.getElementById('surveyContainer').classList.add('unlocked');
+            }
+        }
+        
+        // Allow Enter key to submit password
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+        
+        // Focus password input on load (if not expired)
+        if (!checkExpiration()) {
+            document.getElementById('passwordInput').focus();
+        }
+    </script>
 </body>
 </html>

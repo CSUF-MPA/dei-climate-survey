@@ -388,6 +388,170 @@
             color: #d32f2f;
             margin-bottom: 20px;
         }
+        
+        /* Thank you overlay styles */
+        .thankyou-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(102, 126, 234, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10002;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .thankyou-overlay.show {
+            opacity: 1;
+        }
+        
+        .thankyou-modal {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            transform: translateY(30px);
+            transition: transform 0.5s ease;
+        }
+        
+        .thankyou-overlay.show .thankyou-modal {
+            transform: translateY(0);
+        }
+        
+        .thankyou-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: checkmark 0.6s ease 0.3s both;
+        }
+        
+        .thankyou-icon::after {
+            content: '✓';
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        
+        @keyframes checkmark {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .thankyou-modal h2 {
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-size: 2em;
+            font-weight: 600;
+        }
+        
+        .thankyou-message {
+            color: #4a4a4a;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .thankyou-details {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .thankyou-details h3 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .thankyou-details ul {
+            text-align: left;
+            color: #4a4a4a;
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .thankyou-details li {
+            margin-bottom: 8px;
+        }
+        
+        .close-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 48px;
+        }
+        
+        .close-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .close-button:focus {
+            outline: 3px solid #fff;
+            outline-offset: 2px;
+        }
+        
+        /* Form submission state */
+        .form-submitting {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .submitting-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .submitting-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #e9ecef;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -1057,6 +1221,41 @@
         </main>
     </div>
     
+    <!-- Form Submitting Overlay -->
+    <div id="submittingOverlay" class="submitting-overlay">
+        <div style="text-align: center;">
+            <div class="submitting-spinner"></div>
+            <p style="margin-top: 20px; color: #4a4a4a; font-size: 1.1em;">Submitting your responses...</p>
+        </div>
+    </div>
+    
+    <!-- Thank You Overlay -->
+    <div id="thankyouOverlay" class="thankyou-overlay">
+        <div class="thankyou-modal" role="dialog" aria-labelledby="thankyou-title" aria-describedby="thankyou-message">
+            <div class="thankyou-icon" aria-hidden="true"></div>
+            
+            <h2 id="thankyou-title">Thank You!</h2>
+            
+            <div id="thankyou-message" class="thankyou-message">
+                <p>Your survey responses have been successfully submitted. Your feedback is invaluable in helping us improve our department's climate and culture.</p>
+            </div>
+            
+            <div class="thankyou-details">
+                <h3>What happens next?</h3>
+                <ul>
+                    <li>All responses will be kept completely anonymous</li>
+                    <li>Results will be analyzed and summarized</li>
+                    <li>Findings will be shared with the department</li>
+                    <li>Action plans will be developed based on feedback</li>
+                </ul>
+            </div>
+            
+            <button class="close-button" onclick="closeSurvey()" aria-label="Close survey and return to main page">
+                Close Survey
+            </button>
+        </div>
+    </div>
+    
     <script>
         // Check if survey has expired
         function checkExpiration() {
@@ -1108,6 +1307,74 @@
         // Focus password input on load (if not expired)
         if (!checkExpiration()) {
             document.getElementById('passwordInput').focus();
+        }
+        
+        // Handle form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show submitting overlay
+            document.getElementById('submittingOverlay').style.display = 'flex';
+            document.getElementById('surveyContainer').classList.add('form-submitting');
+            
+            // Create FormData and submit
+            const formData = new FormData(this);
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                // Hide submitting overlay
+                document.getElementById('submittingOverlay').style.display = 'none';
+                document.getElementById('surveyContainer').classList.remove('form-submitting');
+                
+                if (response.ok) {
+                    showThankYou();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            })
+            .catch(error => {
+                // Hide submitting overlay
+                document.getElementById('submittingOverlay').style.display = 'none';
+                document.getElementById('surveyContainer').classList.remove('form-submitting');
+                
+                // Show error message
+                alert('There was an error submitting your survey. Please try again or contact support if the problem persists.');
+                console.error('Form submission error:', error);
+            });
+        });
+        
+        function showThankYou() {
+            const overlay = document.getElementById('thankyouOverlay');
+            overlay.style.display = 'flex';
+            
+            // Trigger animation after display
+            setTimeout(() => {
+                overlay.classList.add('show');
+            }, 10);
+            
+            // Focus management for accessibility
+            setTimeout(() => {
+                overlay.querySelector('.close-button').focus();
+            }, 600);
+        }
+        
+        function closeSurvey() {
+            const overlay = document.getElementById('thankyouOverlay');
+            overlay.classList.remove('show');
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                // Clear session storage
+                sessionStorage.removeItem('surveyAccess');
+                // Redirect or reset the page
+                window.location.reload();
+            }, 500);
         }
     </script>
 </body>

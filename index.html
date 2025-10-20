@@ -305,13 +305,13 @@
                 <h1>DEI Faculty Climate Survey</h1>
                 <div class="intro">
                     <p>Your feedback is important to us. All responses are anonymous and will help improve our department's climate and culture. For the purposes of this survey, we refer to the Public Administration unit as the department.</p>
-                    <p><strong>Note:</strong> Questions marked with <span class="required-indicator" aria-label="required">*</span> are required.</p>
+                    <p><strong>Note:</strong> All questions are optional. Please feel free to answer only those you are comfortable with.</p>
                 </div>
             </header>
             
             <form action="https://formspree.io/f/xnngwgrb" method="POST" novalidate aria-describedby="form-instructions">
                 <div id="form-instructions" class="sr-only">
-                    This form contains multiple sections with rating questions and open-ended questions. Each rating question uses a 5-point scale from Strongly Disagree to Strongly Agree.
+                    This form contains multiple sections with rating questions and open-ended questions. Each rating question uses a 5-point scale from Strongly Disagree to Strongly Agree. All questions are optional.
                 </div>
                 
                 <!-- Section 1: General Climate & Belonging -->
@@ -321,11 +321,10 @@
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             1. I feel comfortable sharing my beliefs, perspectives, and opinions within the public administration (PA) department.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-labelledby="general-heading" aria-required="true">
+                        <div class="likert-scale" role="radiogroup" aria-labelledby="general-heading">
                             <div class="likert-option">
-                                <input type="radio" id="q1_1" name="general_1" value="Strongly Disagree" required aria-describedby="q1-error">
+                                <input type="radio" id="q1_1" name="general_1" value="Strongly Disagree">
                                 <label for="q1_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -345,17 +344,15 @@
                                 <label for="q1_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="q1-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             2. Faculty meetings and departmental discussions provide space for all voices to be heard.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="q2_1" name="general_2" value="Strongly Disagree" required aria-describedby="q2-error">
+                                <input type="radio" id="q2_1" name="general_2" value="Strongly Disagree">
                                 <label for="q2_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -375,17 +372,15 @@
                                 <label for="q2_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="q2-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             3. I feel my contributions are valued by my department.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="q3_1" name="general_3" value="Strongly Disagree" required aria-describedby="q3-error">
+                                <input type="radio" id="q3_1" name="general_3" value="Strongly Disagree">
                                 <label for="q3_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -405,17 +400,15 @@
                                 <label for="q3_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="q3-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             4. I feel comfortable raising concerns or disagreements without fear of retaliation or negative evaluation in our department.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="q4_1" name="general_4" value="Strongly Disagree" required aria-describedby="q4-error">
+                                <input type="radio" id="q4_1" name="general_4" value="Strongly Disagree">
                                 <label for="q4_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -435,17 +428,15 @@
                                 <label for="q4_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="q4-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             5. The department community is welcoming and supportive.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="q5_1" name="general_5" value="Strongly Disagree" required aria-describedby="q5-error">
+                                <input type="radio" id="q5_1" name="general_5" value="Strongly Disagree">
                                 <label for="q5_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -465,7 +456,6 @@
                                 <label for="q5_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="q5-error" class="error-message" role="alert"></div>
                     </fieldset>
                 </section>
                 
@@ -476,11 +466,10 @@
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             1. Our department has implemented concrete practices to support diversity, equity, inclusion, and belonging (such as recruitment initiatives, inclusive policies, or professional development).
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="dei1_1" name="dei_1" value="Strongly Disagree" required aria-describedby="dei1-error">
+                                <input type="radio" id="dei1_1" name="dei_1" value="Strongly Disagree">
                                 <label for="dei1_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -500,17 +489,15 @@
                                 <label for="dei1_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="dei1-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             2. Faculty achievements related to DEIB are recognized and rewarded in my department.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="dei2_1" name="dei_2" value="Strongly Disagree" required aria-describedby="dei2-error">
+                                <input type="radio" id="dei2_1" name="dei_2" value="Strongly Disagree">
                                 <label for="dei2_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -530,17 +517,15 @@
                                 <label for="dei2_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="dei2-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             3. I believe our department has adequate racial and ethnic diversity among faculty.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="dei3_1" name="dei_3" value="Strongly Disagree" required aria-describedby="dei3-error">
+                                <input type="radio" id="dei3_1" name="dei_3" value="Strongly Disagree">
                                 <label for="dei3_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -560,17 +545,15 @@
                                 <label for="dei3_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="dei3-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             4. I believe our department has adequate gender diversity among faculty.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="dei4_1" name="dei_4" value="Strongly Disagree" required aria-describedby="dei4-error">
+                                <input type="radio" id="dei4_1" name="dei_4" value="Strongly Disagree">
                                 <label for="dei4_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -590,17 +573,15 @@
                                 <label for="dei4_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="dei4-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             5. Departmental leadership reflects the diversity of our faculty.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="dei5_1" name="dei_5" value="Strongly Disagree" required aria-describedby="dei5-error">
+                                <input type="radio" id="dei5_1" name="dei_5" value="Strongly Disagree">
                                 <label for="dei5_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -620,17 +601,15 @@
                                 <label for="dei5_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="dei5-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             6. I have access to DEIB-related workshops or training.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="dei6_1" name="dei_6" value="Strongly Disagree" required aria-describedby="dei6-error">
+                                <input type="radio" id="dei6_1" name="dei_6" value="Strongly Disagree">
                                 <label for="dei6_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -650,7 +629,6 @@
                                 <label for="dei6_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="dei6-error" class="error-message" role="alert"></div>
                     </fieldset>
                 </section>
                 
@@ -661,11 +639,10 @@
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             1. I feel confident intervening when I witness bias or discrimination.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="disc1_1" name="disc_1" value="Strongly Disagree" required aria-describedby="disc1-error">
+                                <input type="radio" id="disc1_1" name="disc_1" value="Strongly Disagree">
                                 <label for="disc1_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -685,17 +662,15 @@
                                 <label for="disc1_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="disc1-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             2. I know where to report incidents of discrimination or harassment.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="disc2_1" name="disc_2" value="Strongly Disagree" required aria-describedby="disc2-error">
+                                <input type="radio" id="disc2_1" name="disc_2" value="Strongly Disagree">
                                 <label for="disc2_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -715,17 +690,15 @@
                                 <label for="disc2_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="disc2-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             3. I have confidence that reports of discrimination or harassment will be taken seriously and investigated fairly.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="disc3_1" name="disc_3" value="Strongly Disagree" required aria-describedby="disc3-error">
+                                <input type="radio" id="disc3_1" name="disc_3" value="Strongly Disagree">
                                 <label for="disc3_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -745,17 +718,15 @@
                                 <label for="disc3_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="disc3-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             4. In the past year, I have experienced discrimination or exclusion based on my identity in our department (race/ethnicity, gender, sexual orientation, political beliefs, etc.).
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="disc4_1" name="disc_4" value="Strongly Disagree" required aria-describedby="disc4-error">
+                                <input type="radio" id="disc4_1" name="disc_4" value="Strongly Disagree">
                                 <label for="disc4_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -775,7 +746,6 @@
                                 <label for="disc4_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="disc4-error" class="error-message" role="alert"></div>
                     </fieldset>
                 </section>
                 
@@ -786,11 +756,10 @@
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             1. I have opportunities to collaborate on teaching or research with colleagues in my department.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="prof1_1" name="prof_1" value="Strongly Disagree" required aria-describedby="prof1-error">
+                                <input type="radio" id="prof1_1" name="prof_1" value="Strongly Disagree">
                                 <label for="prof1_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -810,17 +779,15 @@
                                 <label for="prof1_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="prof1-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             2. The public administration department supports my professional development goals.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="prof2_1" name="prof_2" value="Strongly Disagree" required aria-describedby="prof2-error">
+                                <input type="radio" id="prof2_1" name="prof_2" value="Strongly Disagree">
                                 <label for="prof2_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -840,17 +807,15 @@
                                 <label for="prof2_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="prof2-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             3. I feel supported balancing teaching, research, and service responsibilities within the PA department.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="prof3_1" name="prof_3" value="Strongly Disagree" required aria-describedby="prof3-error">
+                                <input type="radio" id="prof3_1" name="prof_3" value="Strongly Disagree">
                                 <label for="prof3_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -870,17 +835,15 @@
                                 <label for="prof3_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="prof3-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             4. I feel my preferences are taken into consideration when making class scheduling decisions within my department.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="prof4_1" name="prof_4" value="Strongly Disagree" required aria-describedby="prof4-error">
+                                <input type="radio" id="prof4_1" name="prof_4" value="Strongly Disagree">
                                 <label for="prof4_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -900,17 +863,15 @@
                                 <label for="prof4_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="prof4-error" class="error-message" role="alert"></div>
                     </fieldset>
                     
                     <fieldset class="question-fieldset">
                         <legend class="question-legend">
                             5. Expectations around service and workload are fair and equitable within the department.
-                            <span class="required-indicator" aria-label="required">*</span>
                         </legend>
-                        <div class="likert-scale" role="radiogroup" aria-required="true">
+                        <div class="likert-scale" role="radiogroup">
                             <div class="likert-option">
-                                <input type="radio" id="prof5_1" name="prof_5" value="Strongly Disagree" required aria-describedby="prof5-error">
+                                <input type="radio" id="prof5_1" name="prof_5" value="Strongly Disagree">
                                 <label for="prof5_1">Strongly Disagree</label>
                             </div>
                             <div class="likert-option">
@@ -930,7 +891,6 @@
                                 <label for="prof5_5">Strongly Agree</label>
                             </div>
                         </div>
-                        <div id="prof5-error" class="error-message" role="alert"></div>
                     </fieldset>
                 </section>
                 
